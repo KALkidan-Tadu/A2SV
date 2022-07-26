@@ -1,0 +1,31 @@
+void insertionSort1(int n, vector<int> arr) {
+int last = arr[n-1];
+int temp;
+bool yes;
+for(int i=n-2; i>=0; i--){
+temp = arr[i];
+yes = false;
+if(last < arr[i]){
+arr[i+1] = arr[i];
+arr[i] = temp;
+}
+else{
+arr[i+1] = last;
+yes= true;
+}
+for(int j=0; j<n; j++){
+cout<<arr[j]<<" ";
+}
+cout<<endl;
+if(i==0 && !yes){
+arr[i+1] = arr[i];
+arr[i] = last;
+yes = true;
+for(int j=0; j<n; j++){
+cout<<arr[j]<<" ";
+}
+}
+if(yes)
+break;
+}
+}
