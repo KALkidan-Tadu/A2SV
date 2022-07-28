@@ -1,0 +1,36 @@
+class Solution {
+public:
+   int partition (vector<int>& arr, int low, int high){
+        int pivot = arr[high];  
+        int i = low; 
+        i-=1;
+        for (int j = low; j <= high- 1; j++){
+            if (arr[j] < pivot){
+                 i++;
+                 int temp1 = arr[i];
+                 arr[i] = arr[j];
+                 arr[j] = temp1;
+                 }
+         }
+         int temp2 = arr[i + 1];
+         arr[i+1]= arr[high];
+         arr[high] = temp2;
+         return (i + 1);
+}
+    void quickSort(vector<int>& arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSort(arr, low, (pi-1));
+            quickSort(arr, (pi+1), high);
+            }
+    }
+    vector<int> targetIndices(vector<int>& nums, int target) {
+         quickSort(nums, 0, nums.size()-1);
+         vector<int> answer;
+         for(int j=0; j<nums.size(); j++){
+                if(nums[j]== target)
+                answer.push_back(j);
+         }
+        return answer;
+    }
+};
