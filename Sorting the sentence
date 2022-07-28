@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+    int words=1;
+    for(int i = 0; i < s.length(); i++)
+    {
+
+      if(s[i] == ' ' || s[i]=='.')
+          words++;
+    }
+    string result[words];
+    int i = 0;
+    stringstream ssin(s);
+    while (ssin.good() && i < words){
+        ssin >> result[i];
+        ++i; 
+    }    
+    string answer=""; 
+    string final[words];
+    int j;
+    char ch;
+    for(int i=0; i<words; i++)
+    {
+          ch= result[i].back();
+           j=((int)ch - 48);
+          result[i].pop_back();
+          final[j-1] = result[i];
+    }
+    for(int k=0; k<words; k++){
+            answer = answer.append(final[k]);
+        if(k != words-1)
+            answer = answer. append(" ");
+    }
+       return answer; 
+    }
+};
