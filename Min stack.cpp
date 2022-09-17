@@ -1,5 +1,36 @@
 class MinStack {
 public:
+    vector<int> stack; 
+    vector<int> minS;
+    int size;
+    MinStack() {
+        size = 0;
+        minS.push_back(INT_MAX);
+    }
+    void push(int val) {
+        stack.push_back(val);
+        minS.push_back(min(minS[size],val));
+        size++;
+    }
+    
+    void pop() {
+        stack.pop_back();
+        minS.pop_back();
+        size--;
+    }
+    
+    int top() {
+        return stack[size-1];
+    }
+    
+    int getMin() {
+        return minS[size];
+    }
+};
+
+
+/*class MinStack {
+public:
     vector<int>* stack; 
     vector<int> min;
     MinStack() {
@@ -29,3 +60,4 @@ public:
         return m;
     }
 };
+*/
