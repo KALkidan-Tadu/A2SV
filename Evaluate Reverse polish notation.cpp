@@ -1,6 +1,47 @@
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
+        stack<long> stack;
+        for(int i=0; i<tokens.size(); i++){
+            if(tokens[i]=="+"){
+                int b = stack.top();
+                stack.pop();
+                int a = stack.top();
+                stack.pop();
+                stack.push(a+b);
+            }
+            else if(tokens[i]=="-"){
+                int b = stack.top();
+                stack.pop();
+                int a = stack.top();
+                stack.pop();
+                stack.push(a-b);
+            }
+            else if(tokens[i]=="*"){
+                long b = stack.top();
+                stack.pop();
+                long a = stack.top();
+                stack.pop();
+                stack.push(a*b);
+            }
+            else if(tokens[i]=="/"){
+                long b = stack.top();
+                stack.pop();
+                long a = stack.top();
+                stack.pop();
+                stack.push(a/b);
+            }
+            else
+                stack.push(stoi(tokens[i]));
+        }
+        return stack.top();
+    }
+};
+
+
+/*class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
         vector<int> stack;
         if(tokens.size()==1)
             return stoi(tokens[0]);
@@ -46,3 +87,4 @@ public:
         return stack[0];
     }
 };
+*/
