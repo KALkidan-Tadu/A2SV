@@ -1,0 +1,6 @@
+enStudNo = int(input())
+enStudents = set(map(int, input().split()))
+freStuNo = int(input())
+freStudents = set(map(int, input().split()))
+difSet = enStudents.difference(freStudents)
+print(len(difSet))
