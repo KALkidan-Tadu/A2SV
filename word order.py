@@ -1,11 +1,10 @@
-d = {}
-n = int(input())
-for i in range(n):
-    word = input()
-    if word in d:
-        d[word] += 1
-    else:
-        d[word] = 1
-print(len(d))
-for value in d.values():
+from collections import Counter
+length = int(input())
+myList = []
+for i in range(length):
+    myList.append(input())
+myDict = Counter(myList)
+print(len(myDict))
+for value in myDict.values():
     print(value, end=" ")
+
