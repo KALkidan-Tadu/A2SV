@@ -16,3 +16,4 @@ class Solution:
             col += 1
         
         return False
+#time compllexity = O(max(len(matrix), len(matrix[0])))
