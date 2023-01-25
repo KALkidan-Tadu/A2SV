@@ -10,12 +10,9 @@ class Solution:
             if (cur1>=0 and cur2>=0 and nums1[cur1] >= nums2[cur2]):
                 nums1[end] = nums1[cur1] 
                 cur1 -= 1
-            elif cur1>=0 and cur2>=0:
+            elif (cur1>=0 and cur2>=0) or (cur2>=0):
                 nums1[end] = nums2[cur2]
                 cur2 -= 1
-            elif cur2>=0:
-                nums1[end] = nums2[cur2]
-                cur2-=1
             else:
                 nums1[end] = nums1[cur1]
                 cur1-=1
